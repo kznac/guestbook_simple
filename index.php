@@ -21,52 +21,17 @@ require_once 'functions.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guestbook</title>
-    <style> 
-    .messages {
-        display: flex;
-        flex-direction: column; 
-        gap: 10px;
-    }
-
-    fieldset .main {
-        width: 30%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        border-width: 3px;
-    }
-
-    body {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-    }
-
-    textarea {
-        resize: none;
-        height: 50px;
-    }
-    
-    .messages hr {
-        width: 100%;
-        border: none;
-        border-top: 1.5px solid #888;
-        margin: 8px 0;
-    }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <fieldset class="main">
+    <fieldset class="firstFieldset">
         <legend>Leave a message</legend>
         <form method="POST">
             <input type="text" name="name" placeholder="Your name" required><br><br>
             <textarea name="message" placeholder="Your message" maxlength="50" required></textarea><br><br>
             <button type="submit">Send</button>
         </form>
-        <fieldset>
+        <fieldset class="secondFieldset">
             <legend>Messages</legend>
             <div class="messages">
                 <?php foreach ($messages as $m): ?>

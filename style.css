@@ -1,0 +1,56 @@
+.messages {
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.firstFieldset {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-width: 3px;
+}
+
+.secondFieldset {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 50px;
+}
+
+textarea {
+    resize: none;
+    height: 50px;
+}
+
+.messages hr {
+    width: 100%;
+    border: none;
+    border-top: 1.5px solid #888;
+    margin: 8px 0;
+}
+
+form {
+    width: 100%;
+}
+
+form input, textarea, button{
+    width: 40%;
+}
