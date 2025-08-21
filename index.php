@@ -24,21 +24,23 @@ $messages = messages();
     <title>Guestbook</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<style>
-    .register {
-        position: absolute;
-        margin: 0;
-        padding: 0;
-        top: 10px;
-        left: 10px;
-    }
-</style>
 <body>
-    <header>
+    <nav>
         <div class="register">
-        <a href="register.php">register</a>
+            <div class="log">
+                <?php 
+                if (isset($_SESSION['user_id'])) {
+                    echo "<a href='logout.php'>Log Out</a>";
+                } else {
+                    echo "<a href='login.php'>Log In</a>";
+                }
+                ?>
+            </div>
+            <div class="reg">
+                <a href="register.php">register</a>
+            </div>
         </div>
-    </header>
+    </nav>
     <fieldset class="firstFieldset">
         <legend>Leave a message</legend>
         <?php if (isset($_SESSION['user_id'])): ?>
@@ -47,7 +49,7 @@ $messages = messages();
             <button type="submit">Send</button>
         </form>
         <?php else: ?>
-            <p>Чтобы оставлять сообщения, <a href="login.php">войдите</a> или <a href="register.php">зарегистрируйтесь</a></p>
+            <p>In order to leave a message <a href="login.php">Log In</a> or <a href="register.php">Register</a></p>
         <?php endif;?>
         <fieldset class="secondFieldset">
             <legend>Messages</legend>

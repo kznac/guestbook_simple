@@ -30,9 +30,10 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     margin: 0;
-    padding: 50px;
+    padding: 0px;
 }
 
 textarea {
@@ -53,4 +54,26 @@ form {
 
 form input, textarea, button{
     width: 40%;
+}
+
+.register {
+    display: block;
+    color: white;
+    text-decoration: none;
+    gap: 10px;
+}
+
+.register a{
+    color: white;
+    text-decoration: none;
+}
+
+nav {    
+    background-color: rgb(36, 36, 36);
+    font-size: 18px;
+    color: white;
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
