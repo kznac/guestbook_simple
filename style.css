@@ -31,7 +31,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     margin: 0;
     padding: 0px;
 }
@@ -57,10 +57,10 @@ form input, textarea, button{
 }
 
 .register {
-    display: block;
     color: white;
     text-decoration: none;
     gap: 10px;
+    display: flex;
 }
 
 .register a{
@@ -75,5 +75,5 @@ nav {
     padding: 15px;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    justify-content: space-around;
 }
