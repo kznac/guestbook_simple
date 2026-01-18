@@ -6,18 +6,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<?php require('partials/head.php')?>
+    <?php require('partials/nav.php')?>
     <form method="POST">
         <input type="text" name="username" placeholder="login">
         <input type="password" name="password" placeholder="password">
         <button type="submit">Log In</button>
     </form>
-</body>
-</html>
+<?php require('partials/footer.php')?>

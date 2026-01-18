@@ -4,15 +4,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     users();
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guestbook</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<?php require('partials/head.php')?>
+    <?php require('partials/nav.php')?>
     <fieldset>
         <legend>Register a new account</legend>
         <form method="POST" action="register.php">
@@ -21,5 +14,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit">register</button>
         </form>
     </fieldset>
-</body>
-</html>
+<?php require('partials/footer.php')?>

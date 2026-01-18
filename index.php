@@ -16,31 +16,8 @@ require_once 'functions.php';
 $messages = messages();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guestbook</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav>
-        <div class="register">
-            <div class="log">
-                <?php 
-                if (isset($_SESSION['user_id'])) {
-                    echo "<a href='logout.php'>Log Out</a>";
-                } else {
-                    echo "<a href='login.php'>Log In</a>";
-                }
-                ?>
-            </div>
-            <div class="reg">
-                <a href="register.php">register</a>
-            </div>
-        </div>
-    </nav>
+<?php require('partials/head.php')?>
+    <?php require('partials/nav.php')?>
     <fieldset class="firstFieldset">
         <legend>Leave a message</legend>
         <?php if (isset($_SESSION['user_id'])): ?>
@@ -62,5 +39,4 @@ $messages = messages();
             </div>
         </fieldset>
     </fieldset>
-</body>
-</html>
+<?php require('partials/footer.php')?>
