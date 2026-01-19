@@ -1,23 +1,21 @@
 <?php
-// $filename = 'messages.txt';
-
-// if($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $name = htmlspecialchars($_POST['name']);
-//     $message = htmlspecialchars($_POST['message']);
-//     $entry = "<div>$name: $message<?div>\n";
-//     file_put_contents($filename, $entry, FILE_APPEND);
-// }
-
-// $messages = file_exists($filename) ? file_get_contents($filename) : '';
-
-//старый вариант, где я сохранял всё в текстовый документ.
 session_start();
 require_once 'functions.php';
 $messages = messages();
 ?>
 
 <?php require('partials/head.php')?>
-    <?php require('partials/nav.php')?>
+<?php $uri = $_SERVER['REQUEST_URI'];
+
+if ($uri == '/') {                      //controller dodelat' hz kak on rabotat' dolzhen
+    require 'controllers/index.php';
+} else if ($uri == '/about') {
+    require 'controllers/about.php';
+}
+
+?>
+<?php require('partials/nav.php')?>
+
     <fieldset class="firstFieldset">
         <legend>Leave a message</legend>
         <?php if (isset($_SESSION['user_id'])): ?>
@@ -39,4 +37,5 @@ $messages = messages();
             </div>
         </fieldset>
     </fieldset>
+
 <?php require('partials/footer.php')?>

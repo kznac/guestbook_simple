@@ -7,7 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <?php require('partials/head.php')?>
-    <?php require('partials/nav.php')?>
+<?php require('partials/nav.php')?>
+
     <fieldset>
         <legend>Log in</legend>
         <form method="POST">
@@ -16,4 +17,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit">Log In</button>
         </form>
     </fieldset>
+    
 <?php require('partials/footer.php')?>

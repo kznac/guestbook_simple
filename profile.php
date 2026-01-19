@@ -1,3 +1,6 @@
+<?php require('partials/head.php')?>
+<?php require('partials/nav.php')?>
+
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
@@ -5,4 +8,7 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-echo "Logged in successfuly! <a href='logout.php'>Log out.</a> <a href='index.php'>Homepage</a>";
+echo "Logged in successfuly!";
+?>
+
+<?php require('partials/footer.php')?>

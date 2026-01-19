@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
+
+.instrument-serif-regular {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+    font-family: "Instrument Serif", serif;
+}
+
 .messages {
     width: 100%;
     display: flex;
@@ -8,6 +20,7 @@
 }
 
 .firstFieldset {
+    margin: 50px;
     width: 100%;
     max-width: 500px;
     display: flex;
@@ -31,7 +44,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin: 0;
     padding: 0px;
 }
@@ -50,10 +63,14 @@ textarea {
 
 form {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 form input, textarea, button{
-    width: 40%;
+    width: 70%;
+    margin: 10px;
 }
 
 .register {
@@ -61,6 +78,7 @@ form input, textarea, button{
     text-decoration: none;
     gap: 10px;
     display: flex;
+    font-size: 28px;
 }
 
 .register a{
@@ -70,10 +88,49 @@ form input, textarea, button{
 
 nav {    
     background-color: rgb(36, 36, 36);
-    font-size: 18px;
+    font-size: 28px;
     color: white;
     padding: 15px;
     width: 100%;
     display: flex;
     justify-content: space-around;
+}
+
+footer {
+    background-color: rgb(36, 36, 36);
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: grey;
+}
+
+.git {
+    color: white;
+    text-decoration: none;
+}
+
+legend {
+    font-size: 24px;
+}
+
+p {
+    font-size: 20px;
+}
+
+input {
+    font-size: 18px;
+}
+
+button {
+    font-size: 18px;
+}
+
+textarea {
+    font-size: 18px;
 }
