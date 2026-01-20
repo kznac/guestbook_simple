@@ -17,24 +17,32 @@ try {
         $email = $_POST['email'] ?? '';
 
         $errors = array();
+        $success;
 
-            if (empty($username) || empty($password) || empty($rpassword) || empty($email)) {
-                array_push($errors, "Fill out missing fields");
+            if (empty($username)) {
+                $errors['username'] = "Username is required";
             }
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                array_push($errors, "Email is not valid");
+            if (empty($email)) {
+                $errors['email'] = "Email is required";
             }
-            if (strlen($password) < 8) {
-                array_push($errors, "Password must be at least 8 characters long");
+            if (empty($password)) {
+                $errors['password'] = "Password is required";
             }
-            if ($password !== $rpassword) {
-                array_push($errors, "Password does not match");
+            if (empty($rpassword)) {
+                $errors['rpassword'] = "Please confirm your password";
+            }
+            if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $errors['email'] = "Email is not valid";
+            }
+            if (!empty($password) && strlen($password) < 8) {
+                $errors['password'] = "Password must be at least 8 characters long";
+            }
+            if (!empty($password) && !empty($rpassword) && $password !== $rpassword) {
+                $errors['rpassword'] = "Password does not match";
             }
 
-            if (count($errors)>0){
-                foreach ($errors as $error) {
-                    echo $error."<br>";
-                }
+            if (count($errors) > 0){
+                return $errors;
             } else{
 
         $hash = password_hash($password, PASSWORD_DEFAULT);
@@ -42,10 +50,10 @@ try {
         $stmt1 = $pdo1->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)");
         $stmt1->execute([$username, $hash, $email]);
 
-        echo "user successfully registered. <a href='login.php'>log in</a>";
+        return true;
         } 
     } else {
-        echo "something went wrong...";
+        return array();
     }
 }
 
@@ -99,15 +107,14 @@ try {
         $errors = array();
 
         if(empty($username)) {
-            array_push($errors, "think of your username");
+            $errors['username'] = "Think of your username";
         }
         if(empty($password)) {
-            array_push($errors, "think of your password");
+            $errors['password'] = "Think of your password";
         }
-        if (count($errors)>0){
-            foreach ($errors as $error) {
-                echo $error."<br>";
-            }
+
+        if (count($errors) > 0){
+            return $errors;
         } else {
 
         $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
@@ -122,6 +129,8 @@ try {
             echo "Wrong login or password";
         }
     }
+    } else {
+        return array();
     }
 }
 

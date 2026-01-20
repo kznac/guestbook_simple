@@ -5,15 +5,6 @@ $messages = messages();
 ?>
 
 <?php require('partials/head.php')?>
-<?php $uri = $_SERVER['REQUEST_URI'];
-
-if ($uri == '/') {                      //controller dodelat' hz kak on rabotat' dolzhen
-    require 'controllers/index.php';
-} else if ($uri == '/about') {
-    require 'controllers/about.php';
-}
-
-?>
 <?php require('partials/nav.php')?>
 
     <fieldset class="firstFieldset">
@@ -32,7 +23,7 @@ if ($uri == '/') {                      //controller dodelat' hz kak on rabotat'
                 <?php foreach ($messages as $m): ?>
                     <strong><?= $m['username'] . "<br>" ?></strong>
                     <?= $m['message'] . "<br>" ?>
-                    <em><?= $m['created_at'] ?></em><hr>
+                    <em class="left"><?= $m['created_at'] ?></em><hr>
                 <?php endforeach ?>
             </div>
         </fieldset>
