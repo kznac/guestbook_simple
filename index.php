@@ -34,6 +34,7 @@ $totalPages = $paginationData['totalPages'];
                     <?php endforeach ?>
                 <?php endif; ?>
             </div>
+            
             <?php if ($totalPages > 1): ?>
             <div class="pagination">
                 <?php if ($currentPage > 1): ?>
