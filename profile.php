@@ -1,8 +1,9 @@
-<?php require('partials/head.php')?>
-<?php require('partials/nav.php')?>
-
 <?php
 session_start();
+
+require('partials/head.php');
+require('partials/nav.php');
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;

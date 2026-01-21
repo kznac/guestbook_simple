@@ -6,6 +6,9 @@
         <div class="about">
             <a href="about.php">About</a>
         </div>
+        <div class="profile">
+            <a href="profile.php">Profile</a>
+        </div>
         <?php if (!isset($_SESSION['user_id'])): ?> 
             <a href="login.php">Log In</a>
             <a href="register.php">Register</a>

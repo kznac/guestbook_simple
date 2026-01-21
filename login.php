@@ -1,8 +1,15 @@
 <?php
 session_start();
 require 'functions.php';
+$errors = array();
+$success = false;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $errors = login();
+    $result = login();
+    if ($result === true) {
+        $success = true;
+    } else {
+        $errors = $result;
+    }
 }
 ?>
 
@@ -24,7 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <span class="error"><?php echo "<br>".$errors['password']; ?></span>
                 <?php endif; ?>
             </div>
-            <button type="submit">Log In</button>
+            <div class="form-group">
+                <button type="submit">Log In</button>
+                    <?php if (!empty($_POST['username']) && !empty($_POST['password']) && $success == false): ?> <!--checks if both fields are not empty and both are wrong -->
+                    <span class="error"><?php echo $errors['wrong']; ?></span>
+                <?php endif; ?>
+            </div>
         </form>
     </fieldset>
     

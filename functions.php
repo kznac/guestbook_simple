@@ -1,4 +1,7 @@
 <?php
+
+//function users to register new users
+
 function users() {
 
 require 'config.php';
@@ -57,9 +60,15 @@ try {
     }
 }
 
-function messages() {
+//function messages to save messages in database
+
+function messages($page = 1) {
 
 require 'config.php';
+
+$messagesPerPage = 5; // messages to show per page
+$page = max(1, intval($page)); // ensure page is at least 1
+$offset = ($page - 1) * $messagesPerPage;
 
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
@@ -83,14 +92,28 @@ try {
         }
     }
 
+//get total count of messages
+$countSql = "SELECT COUNT(*) as total FROM messages";
+$countResult = $pdo->query($countSql)->fetch();
+$totalMessages = $countResult['total'];
+$totalPages = ceil($totalMessages / $messagesPerPage);
+
+//get paginated messages
 $sql = "SELECT messages.message, messages.created_at, users.username
         FROM messages
         JOIN users ON messages.user_id = users.id
-        ORDER BY messages.created_at DESC";
-$messages = $pdo->query($sql)->fetchAll();
-return $messages;
-}
+        ORDER BY messages.created_at DESC
+        LIMIT " . intval($messagesPerPage) . " OFFSET " . intval($offset);
+$messageList = $pdo->query($sql)->fetchAll();
 
+return [
+    'messages' => $messageList,
+    'currentPage' => $page,
+    'totalPages' => $totalPages,
+    'totalMessages' => $totalMessages
+];
+}
+//function login to log the users in
 function login() {
 require 'config.php';
 
@@ -126,7 +149,8 @@ try {
             header("Location: profile.php");
             exit;
         } else {
-            echo "Wrong login or password";
+            $errors['wrong'] = "Wrong Login or Password";
+            return $errors;
         }
     }
     } else {

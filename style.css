@@ -83,7 +83,7 @@ form input, button{
 .register {
     color: white;
     text-decoration: none;
-    gap: 10px;
+    gap: 37px;
     display: flex;
     font-size: 28px;
 }
@@ -91,6 +91,11 @@ form input, button{
 .register a{
     color: white;
     text-decoration: none;
+    transition: color 0.3s;
+}
+
+.register a:hover {
+    color: #555;
 }
 
 nav {    
@@ -120,6 +125,11 @@ a {
 .git {
     color: white;
     text-decoration: none;
+    transition: color 0.3s;
+}
+
+.git:hover {
+    color: #555;
 }
 
 legend {
@@ -168,4 +178,33 @@ textarea {
 .left {
     display: flex;
     flex-direction: row-reverse;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.page-btn {
+    padding: 8px 12px;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.page-btn:hover {
+    background-color: #555;
+}
+
+.page-info {
+    padding: 8px 12px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    font-weight: bold;
 }
