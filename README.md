@@ -23,7 +23,9 @@ guestbook_simple/
 ├── config.php             # Database configuration
 ├── functions.php          # Core functions
 ├── style.css              # Styling
-└── partials/
+└── sql/
+    └── scheme.sql         # SQL Scheme
+├── partials/
     ├── head.php           # HTML head section
     ├── nav.php            # Navigation bar
     └── footer.php         # Footer
