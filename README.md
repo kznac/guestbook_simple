@@ -23,6 +23,8 @@ guestbook_simple/
 ├── config.php             # Database configuration
 ├── functions.php          # Core functions
 ├── style.css              # Styling
+├── sql/
+    └── scheme.sql         # SQL Scheme
 └── partials/
     ├── head.php           # HTML head section
     ├── nav.php            # Navigation bar
@@ -56,7 +58,7 @@ guestbook_simple/
 ?>
 ```
 
-4. Import the database schema (if available)
+4. Import the database schema
 5. Place the project in your web server's root directory (e.g., `htdocs` for XAMPP)
 6. Access the application via `http://localhost/guestbook_simple/`
 
