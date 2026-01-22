@@ -208,3 +208,7 @@ textarea {
     border-radius: 4px;
     font-weight: bold;
 }
+
+body h1 {
+    display: inline-block;
+}
